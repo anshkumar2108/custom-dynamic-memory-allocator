@@ -29,15 +29,16 @@ struct block_meta {
     struct block_meta *next;
     char padding[8]; // Aligns header to exactly 32 bytes
 };
+```
 
-🛠️ Building and Running (WSL / Linux)
+## 🛠️ Building and Running (WSL / Linux)
 This project uses CMake for out-of-source builds to keep the workspace clean.
 
 1. Automated Build and Test (Recommended)
 The easiest way to compile the library and run the entire test suite (including the benchmark) is by running the automated bash script from the root directory:
 
-Bash
 bash run_tests.sh
+
 2. Manual Compilation
 If you prefer to compile the project manually:
 
@@ -55,7 +56,7 @@ Bash
 # Run a specific test with dynamic injection from inside the build directory
 LD_PRELOAD=./libcustom_malloc.so ./stress_test
 
-📁 Project Structure
+### 📁 Project Structure
 
 custom-dynamic-memory-allocation/
 ├── src/
