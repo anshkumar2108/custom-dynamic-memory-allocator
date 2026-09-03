@@ -1,0 +1,28 @@
+For Compiling the malloc.c main file.
+gcc -g -O0 -Wall -Wextra -shared -fPIC malloc_1.c -o malloc.so
+
+For compiling the test suites file:
+gcc -g -O0 -Wall -Wextra test/test_calloc.c -o test_calloc
+
+For injecting the custom malloc code:
+LD_PRELOAD=./malloc.so ./test_calloc
+
+gcc -g -O0 test_split.c -o test_split
+LD_PRELOAD=../malloc.so ./test_split
+
+
+For measure fragmentation method: 
+
+# 1. Compile your allocator into the shared library (if you changed it)
+gcc -g -O0 -Wall -Wextra -shared -fPIC malloc_1.c -o malloc.so
+
+# 2. Compile the stress test (the extern keyword stops the error here)
+gcc -g -O0 -Wall -Wextra stress_test.c -o stress_test
+
+# 3. Inject the library and run the test
+LD_PRELOAD=./malloc.so ./stress_test
+
+gcc -g -O0 -Wall -Wextra test/stress_test.c malloc_1.c -o stress_test
+
+gcc -g -O0 -Wall -Wextra test/test_malloc.c malloc_1.c -o test_malloc_combined
+valgrind --leak-check=full ./test_malloc_combined

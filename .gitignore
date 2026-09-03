@@ -1,0 +1,15 @@
+# Build artifacts
+build/
+*.so
+*.o
+
+# Executables
+test_malloc
+test_split
+stress_test
+test_alignment
+test_calloc
+test_realloc
+test_free
+test_malloc_combined
+stress_test
