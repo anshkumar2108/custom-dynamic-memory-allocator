@@ -35,11 +35,13 @@ struct block_meta {
 This project uses CMake for out-of-source builds to keep the workspace clean.
 
 1. Automated Build and Test (Recommended)
+
 The easiest way to compile the library and run the entire test suite (including the benchmark) is by running the automated bash script from the root directory:
 
 bash run_tests.sh
 
 2. Manual Compilation
+
 If you prefer to compile the project manually:
 
 Bash
@@ -49,7 +51,9 @@ mkdir -p build && cd build
 # Configure and compile
 cmake ..
 make
+
 3. Manual Test Execution
+
 Because the tests are compiled independently of the library, you must inject the allocator at runtime using the Linux dynamic linker:
 
 Bash
